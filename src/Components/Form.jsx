@@ -19,7 +19,7 @@ class NameForm extends React.Component {
                 </label>
                 <input type="submit" value="Mudar converção" onClick={onchangeType} />
                 <br></br>
-                <h3>Conversão</h3>
+                <h3>Conversão1</h3>
                 <div>{state.convertion}</div>
             </div>
 
