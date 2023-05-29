@@ -34,14 +34,15 @@ class App extends React.Component {
 
   handleChange = (event) => {
     this.setState({ value: event.target.value });
-    this.convert(event.target.value.toUpperCase())
+    //this.convert(event.target.value.toUpperCase())
 
   }
-  convert = (value) => {
+  convert = (event) => {
+    event.preventDefault();
     if (this.state.type === "Inteiro para Romano") {
-      this.integerToRoman(value)
+      this.integerToRoman(this.state.value)
     } else {
-      this.romanToInteger(value)
+      this.romanToInteger(this.state.value)
     }
   }
 
@@ -52,7 +53,7 @@ class App extends React.Component {
     } else {
       this.setState({ type: "Inteiro para Romano" });
     }
-    this.setState({ value: '', convertion: '' });
+    this.setState({ value: this.state.convertion, convertion: this.state.value });
   }
   render() {
     return (
@@ -62,6 +63,7 @@ class App extends React.Component {
             state={this.state}
             onChange={this.handleChange}
             onchangeType={this.handleChangeType}
+            convert= {this.convert}
           />
         </header>
       </div>
